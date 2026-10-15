@@ -1,0 +1,20 @@
+<?php
+
+namespace {{ namespace }};
+
+{{ factoryImport }}
+use Illuminate\Database\Eloquent\Model;
+
+class {{ class }} extends Model
+{
+    {{ factory }}
+
+    protected $table='';
+
+    protected $guarded=['id'];
+
+
+    const   UPLOADPATH='images/';
+    const   UPLOADFIELDS=[];
+    }
+
