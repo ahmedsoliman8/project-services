@@ -18,6 +18,12 @@ Route::name('front.')->group(function () {
     })->name('contact');
 });
 
+Route::name('admin.')->prefix('admin')->group(function () {
+    Route::get('/', function () {
+        return view('admin.index');
+    })->name('index');
+});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
