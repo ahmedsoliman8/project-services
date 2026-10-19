@@ -18,19 +18,19 @@ Route::name('front.')->group(function () {
     })->name('contact');
 });
 
-Route::name('admin.')->prefix('admin')->group(function () {
+Route::name('admin.')->prefix(LaravelLocalization::setLocale() . '/admin')
+    ->middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'])
+    ->group(function () {
 
-    Route::middleware('auth')->group(function () {
-        Route::get('/', function () {
-            return view('admin.index');
-        })->name('index');
+        Route::middleware('auth')->group(function () {
+            Route::get('/', function () {
+                return view('admin.index');
+            })->name('index');
+        });
+
+
+        require __DIR__ . '/auth.php';
     });
-
-    /* Route::get('/login', function () {
-         return view('admin.auth.login');
-     })->name('login');*/
-    require __DIR__ . '/auth.php';
-});
 
 /*
 Route::get('/dashboard', function () {
