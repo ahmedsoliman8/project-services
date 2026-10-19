@@ -3,7 +3,8 @@
         <i class="fe fe-menu navbar-toggler-icon"></i>
     </button>
     <form class="form-inline mr-auto searchform text-muted">
-        <input class="form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted" type="search" placeholder="Type something..." aria-label="Search">
+        <input class="form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted" type="search"
+               placeholder="Type something..." aria-label="Search">
     </form>
     <ul class="nav">
         <li class="nav-item">
@@ -23,15 +24,28 @@
             </a>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="avatar avatar-sm mt-2">
-                <img src="{{asset('assets-admin/assets')}}/avatars/face-1.jpg" alt="..." class="avatar-img rounded-circle">
+                <img src="{{asset('assets-admin/assets')}}/avatars/face-1.jpg" alt="..."
+                     class="avatar-img rounded-circle">
               </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="#">Profile</a>
                 <a class="dropdown-item" href="#">Settings</a>
                 <a class="dropdown-item" href="#">Activities</a>
+
+                <form method="POST" action="{{ route('admin.logout') }}">
+                    @csrf
+
+                    <a class="dropdown-item" href="#"
+                       onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                        {{ __('Log Out') }}
+                    </a>
+                </form>
+
             </div>
         </li>
     </ul>
