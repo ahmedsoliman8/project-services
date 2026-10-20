@@ -47,7 +47,7 @@
                     <a class="dropdown-item" href="#"
                        onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('keywords.logout') }}
                     </a>
                 </form>
 

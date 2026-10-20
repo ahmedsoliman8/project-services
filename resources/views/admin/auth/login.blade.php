@@ -47,7 +47,7 @@
                         <input type="checkbox" name="remember" value="remember-me"> {{__('keywords.remember')}} </label>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">{{__('keywords.login')}}</button>
-                
+
             </form>
         </div>
     </div>
