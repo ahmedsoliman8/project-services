@@ -1,35 +1,35 @@
-<script src="{{asset('assets-admin/js')}}/jquery.min.js"></script>
-<script src="{{asset('assets-admin/js')}}/popper.min.js"></script>
-<script src="{{asset('assets-admin/js')}}/moment.min.js"></script>
-<script src="{{asset('assets-admin/js')}}/bootstrap.min.js"></script>
-<script src="{{asset('assets-admin/js')}}/simplebar.min.js"></script>
-<script src='{{asset('assets-admin/js')}}/daterangepicker.js'></script>
-<script src='{{asset('assets-admin/js')}}/jquery.stickOnScroll.js'></script>
-<script src="{{asset('assets-admin/js')}}/tinycolor-min.js"></script>
-<script src="{{asset('assets-admin/js')}}/config.js"></script>
-<script src="{{asset('assets-admin/js')}}/d3.min.js"></script>
-<script src="{{asset('assets-admin/js')}}/topojson.min.js"></script>
-<script src="{{asset('assets-admin/js')}}/datamaps.all.min.js"></script>
-<script src="{{asset('assets-admin/js')}}/datamaps-zoomto.js"></script>
-<script src="{{asset('assets-admin/js')}}/datamaps.custom.js"></script>
-<script src="{{asset('assets-admin/js')}}/Chart.min.js"></script>
+<script src="{{asset($currentAdminAssets)}}/js/jquery.min.js"></script>
+<script src="{{asset($currentAdminAssets)}}/js/popper.min.js"></script>
+<script src="{{asset($currentAdminAssets)}}/js/moment.min.js"></script>
+<script src="{{asset($currentAdminAssets)}}/js/bootstrap.min.js"></script>
+<script src="{{asset($currentAdminAssets)}}/js/simplebar.min.js"></script>
+<script src='{{asset($currentAdminAssets)}}/js/daterangepicker.js'></script>
+<script src='{{asset($currentAdminAssets)}}/js/jquery.stickOnScroll.js'></script>
+<script src="{{asset($currentAdminAssets)}}/js/tinycolor-min.js"></script>
+<script src="{{asset($currentAdminAssets)}}/js/config.js"></script>
+<script src="{{asset($currentAdminAssets)}}/js/d3.min.js"></script>
+<script src="{{asset($currentAdminAssets)}}/js/topojson.min.js"></script>
+<script src="{{asset($currentAdminAssets)}}/js/datamaps.all.min.js"></script>
+<script src="{{asset($currentAdminAssets)}}/js/datamaps-zoomto.js"></script>
+<script src="{{asset($currentAdminAssets)}}/js/datamaps.custom.js"></script>
+<script src="{{asset($currentAdminAssets)}}/js/Chart.min.js"></script>
 <script>
     /* defind global options */
     Chart.defaults.global.defaultFontFamily = base.defaultFontFamily;
     Chart.defaults.global.defaultFontColor = colors.mutedColor;
 </script>
-<script src="{{asset('assets-admin/js')}}/gauge.min.js"></script>
-<script src="{{asset('assets-admin/js')}}/jquery.sparkline.min.js"></script>
-<script src="{{asset('assets-admin/js')}}/apexcharts.min.js"></script>
-<script src="{{asset('assets-admin/js')}}/apexcharts.custom.js"></script>
-<script src='{{asset('assets-admin/js')}}/jquery.mask.min.js'></script>
-<script src='{{asset('assets-admin/js')}}/select2.min.js'></script>
-<script src='{{asset('assets-admin/js')}}/jquery.steps.min.js'></script>
-<script src='{{asset('assets-admin/js')}}/jquery.validate.min.js'></script>
-<script src='{{asset('assets-admin/js')}}/jquery.timepicker.js'></script>
-<script src='{{asset('assets-admin/js')}}/dropzone.min.js'></script>
-<script src='{{asset('assets-admin/js')}}/uppy.min.js'></script>
-<script src='{{asset('assets-admin/js')}}/quill.min.js'></script>
+<script src="{{asset($currentAdminAssets)}}/js/gauge.min.js"></script>
+<script src="{{asset($currentAdminAssets)}}/js/jquery.sparkline.min.js"></script>
+<script src="{{asset($currentAdminAssets)}}/js/apexcharts.min.js"></script>
+<script src="{{asset($currentAdminAssets)}}/js/apexcharts.custom.js"></script>
+<script src='{{asset($currentAdminAssets)}}/js/jquery.mask.min.js'></script>
+<script src='{{asset($currentAdminAssets)}}/js/select2.min.js'></script>
+<script src='{{asset($currentAdminAssets)}}/js/jquery.steps.min.js'></script>
+<script src='{{asset($currentAdminAssets)}}/js/jquery.validate.min.js'></script>
+<script src='{{asset($currentAdminAssets)}}/js/jquery.timepicker.js'></script>
+<script src='{{asset($currentAdminAssets)}}/js/dropzone.min.js'></script>
+<script src='{{asset($currentAdminAssets)}}/js/uppy.min.js'></script>
+<script src='{{asset($currentAdminAssets)}}/js/quill.min.js'></script>
 <script>
     $('.select2').select2(
         {
@@ -233,7 +233,7 @@
         });
     }
 </script>
-<script src="{{asset('assets-admin/js')}}/apps.js"></script>
+<script src="{{asset($currentAdminAssets)}}/js/apps.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
 <script>

@@ -1,5 +1,5 @@
 @extends('admin.auth.master')
-@section('title','Login')
+@section('title',__('keywords.login'))
 @section('content')
     <div class="wrapper vh-100">
         <div class="row align-items-center h-100">
@@ -7,6 +7,7 @@
             <form method="POST" action="{{ route('admin.login') }}"
                   class="col-lg-3 col-md-4 col-10 mx-auto text-center">
                 @csrf
+                @include('admin.partials.language')
                 <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./index.html">
                     <svg version="1.1" id="logo" class="navbar-brand-img brand-md" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 120 120"
@@ -19,22 +20,22 @@
             </svg>
                 </a>
 
-                <h1 class="h6 mb-3">Sign in</h1>
+                <h1 class="h6 mb-3">{{__('keywords.sign_in')}}</h1>
                 <x-auth-session-status class="mb-4" :status="session('status')"/>
                 <div class="form-group">
-                    <x-input-label for="email" class="sr-only"  :value="__('Email')"/>
+                    <x-input-label for="email" class="sr-only" :value="__('keywords.email')"/>
 
                     <x-text-input id="email" class="form-control form-control-lg" type="email" name="email"
-                                  placeholder="Email address" :value="old('email')" autofocus
+                                  placeholder="{{__('keywords.email')}}" :value="old('email')" autofocus
                                   autocomplete="username"/>
                     <x-input-error :messages="$errors->get('email')" class="mt-2"/>
                 </div>
                 <div class="form-group">
 
 
-                    <x-input-label for="password" class="sr-only" :value="__('Password')"/>
+                    <x-input-label for="password" class="sr-only" :value="__('keywords.password')"/>
 
-                    <x-text-input id="password" class="form-control form-control-lg" placeholder="Password"
+                    <x-text-input id="password" class="form-control form-control-lg" placeholder="{{__('keywords.password')}}"
                                   type="password"
                                   name="password"
                                   autocomplete="current-password"/>
@@ -43,10 +44,10 @@
                 </div>
                 <div class="checkbox mb-3">
                     <label>
-                        <input type="checkbox" name="remember" value="remember-me"> Stay logged in </label>
+                        <input type="checkbox" name="remember" value="remember-me"> {{__('keywords.remember')}} </label>
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-                <p class="mt-5 mb-3 text-muted">© 2020</p>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">{{__('keywords.login')}}</button>
+                
             </form>
         </div>
     </div>
