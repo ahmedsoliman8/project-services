@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
+//Front Routes
 Route::name('front.')->group(function () {
     Route::get('/', function () {
         return view('front.index');
@@ -18,14 +20,21 @@ Route::name('front.')->group(function () {
     })->name('contact');
 });
 
+//Admin Routes
 Route::name('admin.')->prefix(LaravelLocalization::setLocale() . '/admin')
     ->middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'])
     ->group(function () {
 
+        //Admin
         Route::middleware('auth')->group(function () {
             Route::get('/', function () {
                 return view('admin.index');
             })->name('index');
+        });
+
+        //Services
+        Route::controller(ServiceController::class)->group(function () {
+            Route::resource('services', ServiceController::class);
         });
 
 

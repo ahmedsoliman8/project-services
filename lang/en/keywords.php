@@ -10,4 +10,8 @@ return [
     'remember' => 'Remember me',
     'login' => 'Login',
     'sign_in' => 'Sign in',
+    //HomePage
+    'home' => 'Home',
+    //Services Module
+    'services' => 'Services',
 ];
