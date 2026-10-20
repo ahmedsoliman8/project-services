@@ -10,6 +10,7 @@ return [
     'remember' => 'Remember me',
     'login' => 'Login',
     'sign_in' => 'Sign in',
+    'components' => 'Components',
     //HomePage
     'home' => 'Home',
     //Services Module
