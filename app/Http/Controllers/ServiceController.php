@@ -13,7 +13,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        return view('admin.services.index');
+        $services = Service::paginate(8);
+        return view('admin.services.index', get_defined_vars());
     }
 
     /**
@@ -21,7 +22,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.services.create');
     }
 
     /**
@@ -29,7 +30,11 @@ class ServiceController extends Controller
      */
     public function store(StoreServiceRequest $request)
     {
-        //
+        Service::create($request->validated());
+
+        return redirect()
+            ->route('admin.services.index')
+            ->with('success', __('keywords.service_added'));
     }
 
     /**
@@ -37,7 +42,8 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        //
+        return view('admin.services.show', get_defined_vars());
+
     }
 
     /**
@@ -45,7 +51,7 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        return view('admin.services.edit', compact('service'));
     }
 
     /**
@@ -53,7 +59,11 @@ class ServiceController extends Controller
      */
     public function update(UpdateServiceRequest $request, Service $service)
     {
-        //
+        $service->update($request->validated());
+
+        return redirect()
+            ->route('admin.services.index')
+            ->with('success', __('keywords.service_updated'));
     }
 
     /**
@@ -61,6 +71,12 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+       // dd($service);
+
+        $service->delete();
+
+        return redirect()
+            ->route('admin.services.index')
+            ->with('success', __('keywords.service_deleted'));
     }
 }

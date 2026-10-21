@@ -23,7 +23,19 @@ class StoreServiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
+            'icon' => ['required', 'string', 'max:255'],
         ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'email' => __('keywords.title'),
+            'password' => __('keywords.description'),
+            'icon' => __('keywords.icon'),
+        ];
+
     }
 }

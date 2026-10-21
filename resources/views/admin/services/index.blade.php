@@ -5,70 +5,103 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h2 class="h5 page-title">{{__('keywords.services')}}</h2>
+                <div class="page-title-box d-sm-flex align-items-center justify-content-between mb-3">
+                    <h2 class="h5 page-title">{{__('keywords.services')}}</h2>
+                    <div class="page-title-right">
+                        <a href="{{ route('admin.services.create') }}"
+                           class="btn btn-info btn-sm">
+                            {{__('keywords.add_new')}}
+                        </a>
+                    </div>
+                </div>
+
 
                 <div class="card shadow">
                     <div class="card-body">
 
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('success') }}
+
+                            </div>
+                        @endif
                         <table class="table table-hover">
                             <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Company</th>
-                                <th>Address</th>
-                                <th>Date</th>
-                                <th>Status</th>
+                                <th width="5%">#</th>
+                                <th>{{__('keywords.title')}}</th>
+                                <th width="15%">{{__('keywords.icon')}}</th>
+                                <th width="25%">{{__('keywords.actions')}}</th>
                             </tr>
                             </thead>
+
                             <tbody>
-                            <tr>
-                                <td>3224</td>
-                                <td>Keith Baird</td>
-                                <td>Enim Limited</td>
-                                <td>901-6206 Cras Av.</td>
-                                <td>Apr 24, 2019</td>
-                                <td><span class="badge badge-pill badge-warning">Hold</span></td>
-                            </tr>
-                            <tr>
-                                <td>3218</td>
-                                <td>Graham Price</td>
-                                <td>Nunc Lectus Incorporated</td>
-                                <td>Ap #705-5389 Id St.</td>
-                                <td>May 23, 2020</td>
-                                <td><span class="badge badge-pill badge-success">Success</span></td>
-                            </tr>
-                            <tr>
-                                <td>2651</td>
-                                <td>Reuben Orr</td>
-                                <td>Nisi Aenean Eget Limited</td>
-                                <td>7425 Malesuada Rd.</td>
-                                <td>Nov 4, 2019</td>
-                                <td><span class="badge badge-pill badge-warning">Hold</span></td>
-                            </tr>
-                            <tr>
-                                <td>2636</td>
-                                <td>Akeem Holder</td>
-                                <td>Pellentesque Associates</td>
-                                <td>896 Sodales St.</td>
-                                <td>Mar 27, 2020</td>
-                                <td><span class="badge badge-pill badge-danger">Danger</span></td>
-                            </tr>
-                            <tr>
-                                <td>2757</td>
-                                <td>Beau Barrera</td>
-                                <td>Augue Incorporated</td>
-                                <td>4583 Id St.</td>
-                                <td>Jan 13, 2020</td>
-                                <td><span class="badge badge-pill badge-success">Success</span></td>
-                            </tr>
+                            @forelse ($services as $service)
+                                <tr>
+                                    <td>{{ $services->firstItem()+$loop->index }}</td>
+
+                                    <td>{{ $service->title }}</td>
+
+                                    <td>
+                                        <i class="fa {{ $service->icon }} fa-2x"></i>
+
+                                    </td>
+
+                                    <td>
+                                        <a href="{{ route('admin.services.show', $service->id) }}"
+                                           class="btn btn-info btn-sm">
+                                            <i class="fe fe-eye fe-24"></i>
+                                        </a>
+
+                                        <a href="{{ route('admin.services.edit', $service->id) }}"
+                                           class="btn btn-warning btn-sm">
+                                            <i class="fe fe-edit fe-24"></i>
+
+                                        </a>
+
+                                        <form action="{{ route('admin.services.destroy', $service->id) }}"
+                                              method="POST"
+                                              style="display: inline-block;"
+                                              id="deleteForm-{{$service->id}}"
+                                        >
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button onclick="confirmDelete('{{$service->id}}')" type="button"
+                                                    class="btn btn-danger btn-sm">
+                                                <i class="fe fe-trash-2 fe-24"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="4" class="text-center alert alert-danger">
+                                        {{__('keywords.no_services_found')}}
+                                    </td>
+                                </tr>
+                            @endforelse
                             </tbody>
                         </table>
+                        <div class="d-flex justify-content-center mt-4">
+                            {{ $services->links() }}
+                        </div>
+
                     </div>
                 </div>
 
             </div> <!-- .col-12 -->
         </div> <!-- .row -->
     </div> <!-- .container-fluid -->
+
+    <script>
+
+        function confirmDelete(id) {
+            if (confirm('{{__("keywords.delete_this_service")}}')){
+                document.getElementById('deleteForm-'+id).submit()
+           }
+        }
+
+    </script>
 
 @endsection
