@@ -8,10 +8,8 @@
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between mb-3">
                     <h2 class="h5 page-title">{{__('keywords.services')}}</h2>
                     <div class="page-title-right">
-                        <a href="{{ route('admin.services.create') }}"
-                           class="btn btn-info btn-sm">
-                            {{__('keywords.add_new')}}
-                        </a>
+
+                        <x-action-button type="create" :href="route('admin.services.create')"/>
                     </div>
                 </div>
 
@@ -19,12 +17,8 @@
                 <div class="card shadow">
                     <div class="card-body">
 
-                        @if (session('success'))
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                {{ session('success') }}
 
-                            </div>
-                        @endif
+                        <x-success-alert/>
                         <table class="table table-hover">
                             <thead>
                             <tr>
@@ -48,38 +42,21 @@
                                     </td>
 
                                     <td>
-                                        <a href="{{ route('admin.services.show', $service->id) }}"
-                                           class="btn btn-info btn-sm">
-                                            <i class="fe fe-eye fe-24"></i>
-                                        </a>
 
-                                        <a href="{{ route('admin.services.edit', $service->id) }}"
-                                           class="btn btn-warning btn-sm">
-                                            <i class="fe fe-edit fe-24"></i>
+                                        <x-action-button type="show"
+                                                         :href="route('admin.services.show', $service->id)"/>
 
-                                        </a>
 
-                                        <form action="{{ route('admin.services.destroy', $service->id) }}"
-                                              method="POST"
-                                              style="display: inline-block;"
-                                              id="deleteForm-{{$service->id}}"
-                                        >
-                                            @csrf
-                                            @method('DELETE')
+                                        <x-action-button type="edit"
+                                                         :href="route('admin.services.edit', $service->id)"/>
 
-                                            <button onclick="confirmDelete('{{$service->id}}')" type="button"
-                                                    class="btn btn-danger btn-sm">
-                                                <i class="fe fe-trash-2 fe-24"></i>
-                                            </button>
-                                        </form>
+                                        <x-delete-button id="{{ $service->id}}"
+                                                         :href="route('admin.services.destroy', $service->id)"/>
                                     </td>
                                 </tr>
                             @empty
-                                <tr>
-                                    <td colspan="4" class="text-center alert alert-danger">
-                                        {{__('keywords.no_services_found')}}
-                                    </td>
-                                </tr>
+
+                                <x-empty-alert :name="__('keywords.no_services_found')"/>
                             @endforelse
                             </tbody>
                         </table>
@@ -97,9 +74,9 @@
     <script>
 
         function confirmDelete(id) {
-            if (confirm('{{__("keywords.delete_this_service")}}')){
-                document.getElementById('deleteForm-'+id).submit()
-           }
+            if (confirm('{{__("keywords.delete_this_service")}}')) {
+                document.getElementById('deleteForm-' + id).submit()
+            }
         }
 
     </script>
