@@ -72,9 +72,7 @@
                             </div>
 
                             {{-- Buttons --}}
-                            <button type="submit" class="btn btn-primary">
-                                {{ __('keywords.edit') }}
-                            </button>
+                            <x-submit-button/>
 
                             <a href="{{ route('admin.services.index') }}"
                                class="btn btn-secondary">
