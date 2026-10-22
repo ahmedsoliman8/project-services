@@ -23,7 +23,7 @@ return [
     'id' => 'Id',
     //Services Module
     'services' => 'Services',
-    'title' => 'Title',
+    'title' => 'Titlee',
     'description' => 'Description',
     'icon' => 'Icon',
     'no_services_found' => 'No services found.',

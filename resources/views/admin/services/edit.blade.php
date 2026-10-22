@@ -20,9 +20,7 @@
 
                             {{-- Title --}}
                             <div class="form-group mb-3">
-                                <label for="title">
-                                    {{ __('keywords.title') }}
-                                </label>
+                                <x-form-label title="title"/>
 
                                 <input
                                     type="text"
@@ -33,18 +31,12 @@
                                     placeholder="{{ __('keywords.title') }}"
                                 >
 
-                                @error('title')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+                                <x-validation-error field="title"/>
                             </div>
 
                             {{-- Description --}}
                             <div class="form-group mb-3">
-                                <label for="description">
-                                    {{ __('keywords.description') }}
-                                </label>
+                                <x-form-label title="description"/>
 
                                 <textarea
                                     name="description"
@@ -54,18 +46,12 @@
                                     placeholder="{{ __('keywords.description') }}"
                                 >{{ old('description', $service->description) }}</textarea>
 
-                                @error('description')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+                                <x-validation-error field="description"/>
                             </div>
 
                             {{-- Icon --}}
                             <div class="form-group mb-3">
-                                <label for="icon">
-                                    {{ __('keywords.icon') }}
-                                </label>
+                                <x-form-label title="icon"/>
 
                                 <input
                                     type="text"
@@ -76,11 +62,7 @@
                                     placeholder="{{ __('keywords.icon') }}"
                                 >
 
-                                @error('icon')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+                                <x-validation-error field="icon"/>
 
                                 <div class="mt-2">
                                     <i id="icon-preview"
@@ -109,7 +91,7 @@
 
     <script>
         document.getElementById('icon').addEventListener('input', function () {
-            document.getElementById('icon-preview').className = 'fe '+this.value+' fe-24';
+            document.getElementById('icon-preview').className = 'fe ' + this.value + ' fe-24';
         });
     </script>
 @endsection
