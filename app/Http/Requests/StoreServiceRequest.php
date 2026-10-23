@@ -32,7 +32,7 @@ class StoreServiceRequest extends FormRequest
     public function attributes()
     {
         return [
-            'email' => __('keywords.title'),
+            'title' => __('keywords.title'),
             'password' => __('keywords.description'),
             'icon' => __('keywords.icon'),
         ];

@@ -8,12 +8,14 @@ use App\Http\Requests\UpdateServiceRequest;
 
 class ServiceController extends Controller
 {
+    private const DIR = 'admin.services.';
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $services = Service::paginate(8);
+        $services = Service::paginate(config('pagination.count'));
         return view('admin.services.index', get_defined_vars());
     }
 
@@ -71,7 +73,7 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-       // dd($service);
+        // dd($service);
 
         $service->delete();
 

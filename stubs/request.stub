@@ -22,8 +22,18 @@ class {{ class }} extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+          return [
+             //      'title' => ['required', 'string', 'max:255'],
+
+               ];
     }
+
+      public function attributes()
+        {
+            return [
+               // 'title' => __('keywords.title'),
+
+            ];
+
+        }
 }
