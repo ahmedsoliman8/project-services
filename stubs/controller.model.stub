@@ -50,7 +50,7 @@ class {{ class }} extends Controller
      */
     public function edit({{ model }} ${{ modelVariable }})
     {
-            return view('admin.services.edit', compact('${{ modelVariable }}'));
+            return view('admin.services.edit', compact('{{ modelVariable }}'));
     }
 
     /**
